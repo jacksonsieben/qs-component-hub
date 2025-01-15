@@ -1,10 +1,18 @@
 "use strict";
-const mysql = require("mysql");
+const mysql = require("mysql2");
 const options = require("./connection-options.json");
 
 module.exports.login = (request, response) => {
     let connection = mysql.createConnection(options);
-    connection.connect();
+    connection.connect((err) => {
+        if (err) {
+            console.error('Error connecting to the database:', err.stack);
+            response.sendStatus(500);
+            return;
+        }
+        console.log('Connected to the database as id ' + connection.threadId);
+    });
+    
     let query = `
         SELECT U.id, U.userName, U.name, U.email, 
         U.ROLE AS roleCode, ROLE_CODE.DESCRIPTION AS roleDescription 

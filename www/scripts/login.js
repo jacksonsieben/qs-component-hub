@@ -7,26 +7,6 @@ $(document).ready(()=>{
         event.preventDefault();
         submitLogin();
     });
-
-    if (getBrowser() === "chrome") {
-        loginAjax("nunesd", "123456", (success)=>{
-            if (!success) {
-                showHideModalErrorMessage(true, "Username/password incorrecto.");
-                return;
-            }
-            location.href = "/home.html";
-        });
-    }
-    else
-    {
-        loginAjax("renatoreis", "123456", (success)=>{
-            if (!success) {
-                showHideModalErrorMessage(true, "Username/password incorrecto.");
-                return;
-            }
-            location.href = "/home.html";
-        });
-    }
 });
 
 function submitLogin() {

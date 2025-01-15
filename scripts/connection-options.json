@@ -2,6 +2,5 @@
     "host": "localhost",
     "user": "root",
     "database": "qs_example",
-    "password": "12345",
-    "multipleStatements": true
+    "password": "root"
 }
