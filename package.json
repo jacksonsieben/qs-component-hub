@@ -15,5 +15,10 @@
     "websocket": "^1.0.34",
     "ws": "^8.5.0"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "@eslint/js": "^9.18.0",
+    "eslint": "^9.18.0",
+    "globals": "^15.14.0"
+  }
 }
