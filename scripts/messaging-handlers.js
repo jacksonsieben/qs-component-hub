@@ -25,7 +25,7 @@ module.exports.loadWebSocketSettings = (request, response) => {
 
     connection.query(`${query1}; ${query2}; ${query3}`, [request.body.id, request.body.id, request.body.id], function (err, results) {
         if (err) {
-            console.log(err)
+            console.error(err)
             response.json([]);
             return;
         } 
@@ -44,7 +44,7 @@ module.exports.messagingInsertNew = (message, callback) => {
 
     connection.query(query, [message.from, message.from, message.to, message.message, dateCreated, message.seen], function (err, result) {
         if (err) {
-            console.log(err)
+            console.error(err)
             callback(-1);
             return;
         } 
@@ -71,7 +71,7 @@ module.exports.loadWebSocketMessages = (request, response) => {
 
     connection.query(query, [request.body.id, request.body.id], function (err, result) {
         if (err) {
-            console.log(err)
+            console.error(err)
             response.json([]);
             return;
         } 

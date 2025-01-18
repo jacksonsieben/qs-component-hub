@@ -34,7 +34,9 @@ function isUserLoggedIn(request){
     return user === undefined ? false : true;
 }
 
-app.use((request, response, next) => {
+app.use(redirectMiddleware);
+
+function redirectMiddleware(request, response, next) {
     let url = request.url;
 
     if (url.match(/\//gi).length > 1) {
@@ -63,9 +65,7 @@ app.use((request, response, next) => {
     }
 
     next();
-});
-
-
+}
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("www"));
 
@@ -196,5 +196,10 @@ function disconnectClient(client){
 }
 
 
-
+module.exports = {
+    isUserLoggedIn,
+    redirectMiddleware,
+    app,
+    server
+};
 

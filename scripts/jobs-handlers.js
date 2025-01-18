@@ -50,7 +50,7 @@ module.exports.getListJobs = (request, response) => {
 
     connection.query(query, vaiablesToBind, function (err, rows) {
         if (err) {
-            console.log(err)
+            console.error(err)
             response.json({jobs: [] });
         } else {
             response.json({jobs: rows });
@@ -70,7 +70,7 @@ module.exports.getUserInfoInitState = (request, response) => {
 
     connection.query(`${query1}; ${query2}; ${query3}; ${query4}; ${query5}; ${query6}`, function (err, results) {
         if (err) {
-            console.log(err)
+            console.error(err)
             response.json({initPageState: [] });
         } else {
             response.json({initPageState: results });
@@ -91,7 +91,7 @@ module.exports.editJobInfo = (request, response) => {
     
     connection.query(query, [priority], function (err, result) {
         if (err) {
-            console.log(err)
+            console.error(err)
             response.sendStatus(500);
             return;
         } 
@@ -129,7 +129,7 @@ module.exports.editJobInfo = (request, response) => {
 
         connection.query(query, parameters, function (err, rows) {
             if (err) {
-                console.log(err)
+                console.error(err)
                 response.sendStatus(500);
             } 
             else 
@@ -151,7 +151,7 @@ module.exports.createJob = (request, response) => {
     
     connection.query(query, [priority], function (err, result) {
         if (err) {
-            console.log(err);
+            console.error(err);
             response.sendStatus(500);
             return;
         } 
@@ -174,7 +174,7 @@ module.exports.createJob = (request, response) => {
 
         connection.query(query, [userId, userIdClient, equipmentType, equipmentTypeOther, equipmentBrand, equipmentProcedure, equipmentProcedureOther, dateStarted, status, notes, priority, priorityWork], function (err, rows) {
             if (err) {
-                console.log(err);
+                console.error(err);
                 response.sendStatus(500);
                 return;
             } 
@@ -191,7 +191,7 @@ module.exports.reopenJob = (request, response) => {
 
     connection.query(query, ["1", null, null, JobId], function (err, rows) {
         if (err) {
-            console.log(err)
+            console.error(err)
             response.sendStatus(500);
         } else {
             response.sendStatus(200);
@@ -212,7 +212,7 @@ module.exports.editOrderPriority = (request, response) => {
 
     connection.query(`${query1}; ${query2}`, [startRowInfo.priorityWork, endRowInfo.id, endRowInfo.priorityWork, startRowInfo.id], function (err, results) {
         if (err) {
-            console.log(err)
+            console.error(err)
             response.sendStatus(500);
             return;
         } 

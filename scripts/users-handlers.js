@@ -17,7 +17,7 @@ module.exports.getUsers = (request, response) => {
     `;
     connection.query(query, function (err, rows) {
         if (err) {
-            console.log(err)
+            console.error(err)
             response.json({users: [] });
         } else {
             response.json({users: rows });
@@ -31,7 +31,7 @@ module.exports.createUser = (request, response) => {
     let query = "INSERT INTO user (userName, name, email, password, role) VALUES (?, ?, ?, ?, ?)";
     connection.query(query, [request.body.name, request.body.userName, request.body.email, request.body.password, request.body.role], function (err, rows) {
         if (err) {
-            console.log(err);
+            console.error(err);
             response.sendStatus(500);
         } 
         else 
@@ -47,7 +47,7 @@ module.exports.editUser = (request, response) => {
     let query = "UPDATE user SET name = ?, email = ?, role = ? WHERE ID = ?";
     connection.query(query, [request.body.name, request.body.email, request.body.role, request.body.id], function (err, rows) {
         if (err) {
-            console.log(err)
+            console.error(err)
             response.json({success: false});
         } 
         else 
@@ -63,7 +63,7 @@ module.exports.deleteUser = (request, response) => {
     let query = "DELETE FROM user WHERE id = ?";
     connection.query(query, [request.params.id], function (err, rows) {
         if (err) {
-            console.log(err);
+            console.error(err);
             response.sendStatus(500);
         } 
         else 
@@ -80,7 +80,7 @@ module.exports.getPageSettings = (request, response) => {
 
     connection.query(`${query1}`, function (err, results) {
         if (err) {
-            console.log(err)
+            console.error(err)
             response.json({pageSettings: [] });
         } else {
             response.json({pageSettings: [results] });

@@ -17,7 +17,7 @@ module.exports.getClients = (request, response) => {
     
     connection.query(query, function (err, rows) {
         if (err) {
-            console.log(err)
+            console.error(err)
             response.json({clients: [] });
         } else {
             response.json({clients: rows });
@@ -31,7 +31,7 @@ module.exports.editClient = (request, response) => {
     let query = "UPDATE client SET name = ?, address = ?, postCode = ?, email = ?, nif = ? WHERE ID = ?";
     connection.query(query, [request.body.name, request.body.address, request.body.postCode, request.body.email, request.body.nif, request.body.id], function (err, rows) {
         if (err) {
-            console.log(err)
+            console.error(err)
             response.json({success: false});
         } 
         else 
@@ -47,7 +47,7 @@ module.exports.deleteClient = (request, response) => {
     let query = "DELETE FROM client WHERE id = ?";
     connection.query(query, [request.params.id], function (err, rows) {
         if (err) {
-            console.log(err);
+            console.error(err);
             response.sendStatus(500);
         } 
         else 
@@ -63,7 +63,7 @@ module.exports.createClient = (request, response) => {
     let query = "INSERT INTO CLIENT (NAME, ADDRESS, POSTCODE, EMAIL, NIF) VALUES (?, ?, ?, ?, ?)";
     connection.query(query, [request.body.name, request.body.address, request.body.postCode, request.body.email, request.body.nif], function (err, rows) {
         if (err) {
-            console.log(err);
+            console.error(err);
             response.sendStatus(500);
         } 
         else 
