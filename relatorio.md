@@ -196,7 +196,6 @@ A capacidade do software de proteger informações e dados contra acesso não au
 ### Manutenibilidade
 Refere-se à facilidade com que o software pode ser modificado, corrigido ou melhorado, incluindo a facilidade de realizar manutenção adaptativa, corretiva, evolutiva e preventiva.
 
-- **Modularidade**: O uso de ferramentas como ESLint sugere que o código está sendo padronizado.
 - **Sugestão**: Revisar o código para garantir alta coesão e baixo acoplamento.
 
 ### Portabilidade
@@ -211,7 +210,6 @@ Com base na análise:
 
 ### Pontos Fortes
 - Funcionalidades básicas bem definidas e alinhadas aos objetivos do sistema.
-- Uso de ferramentas para melhoria da qualidade do código.
 - Foco em requisitos não funcionais como desempenho e usabilidade.
 
 ### Pontos a Melhorar
@@ -602,7 +600,6 @@ O presente relatório documentou a análise detalhada do projeto **"Reparação 
 
 ## Pontos Fortes
 - **Funcionalidades Básicas Bem Definidas**: O sistema cobre autenticação, cadastro e gestão de usuários e clientes, atendendo aos requisitos funcionais básicos.
-- **Uso de Ferramentas de Qualidade**: A aplicação de ferramentas como **ESLint** e **Mocha** demonstra um compromisso com a padronização e a qualidade do código.
 - **Foco em Requisitos Não Funcionais**: A atenção a aspectos como desempenho, usabilidade e segurança reforça a preocupação com a experiência do usuário e a robustez do sistema.
 
 ## Pontos a Melhorar
