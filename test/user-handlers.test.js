@@ -223,11 +223,4 @@ describe('Users Handlers', () => {
             expect(consoleStub.error.calledOnce).to.be.true;
         });
     });
-    after(() => {
-        // Encerra o servidor após a execução de todos os testes
-        server.close(() => {
-            console.log('Servidor encerrado.');
-            process.exit(0);
-        });
-    });
 });
